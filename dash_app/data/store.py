@@ -9,6 +9,7 @@ def load(key):
     obj = s3.get_object(Bucket=BUCKET, Key=key)
     return pd.read_parquet(io.BytesIO(obj["Body"].read()))
 
+@cache.memoize(timeout=6*3600)
 def load_json(key):
     obj = s3.get_object(Bucket=BUCKET, Key=key)
     return json.loads(obj["Body"].read())

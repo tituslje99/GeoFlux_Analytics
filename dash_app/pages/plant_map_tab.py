@@ -31,9 +31,9 @@ from dash_app.data.store import load_gem_data
 # Register as page under main app
 register_page(
     __name__,
-    path="/global_flow_tracker",
+    path="/global_assets_tracker",
     name="Oil and Gas",
-    title="Oil & Gas Flow Tracker"
+    title="Oil & Gas Assets Tracker"
 )
 
 # ---------------------------------------------------------------- palette

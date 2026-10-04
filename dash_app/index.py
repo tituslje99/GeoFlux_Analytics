@@ -7,7 +7,7 @@ server = app.server
 NAV_ITEMS = [
     ("Crude Tracker", "/crude_window"),
     ("NG Tracker", "/natty_window"),
-    ("Global Flows Tracker", "/global_flow_tracker")
+    ("Global Assets Tracker", "/global_assets_tracker")
 ]
 
 app.layout = html.Div(
