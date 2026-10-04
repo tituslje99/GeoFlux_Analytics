@@ -1,0 +1,394 @@
+/* ── FlowGos theme (Kpler-inspired minimalist) ── */
+/* Pipeline mascot: dash_app/assets/pipeline-bg.svg
+   To use a photo instead, save it as pipeline-bg.jpg in assets/
+   and set --pipeline-image to url("pipeline-bg.jpg") below. */
+
+@import url("https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --fg-navy: #0c1527;
+  --fg-navy-soft: #1a2744;
+  --fg-navy-mid: #1e3a5f;
+  --fg-steel: #64748b;
+  --fg-text: #1e293b;
+  --fg-muted: #64748b;
+  --fg-accent: #38bdf8;
+  --fg-accent-hover: #0ea5e9;
+  --fg-accent-deep: #0284c7;
+
+  --bg-page: #e8edf4;
+  --bg-page-tint: #dce4ef;
+  --bg-surface: #ffffff;
+  --bg-header: #0c1527;
+  --bg-nav-hover: rgba(255, 255, 255, 0.1);
+  --bg-nav-active: rgba(56, 189, 248, 0.18);
+
+  --border-subtle: #d1dbe8;
+  --border-strong: #b8c5d4;
+
+  --pipeline-image: url("pipeline-bg.svg");
+  --header-overlay: linear-gradient(135deg,
+      rgba(12, 21, 39, 0.88) 0%,
+      rgba(30, 58, 95, 0.78) 45%,
+      rgba(12, 21, 39, 0.92) 100%);
+  --page-overlay: linear-gradient(180deg,
+      rgba(232, 237, 244, 0.94) 0%,
+      rgba(220, 228, 239, 0.92) 55%,
+      rgba(232, 237, 244, 0.96) 100%);
+
+  --font-serif: "STIX Two Text", "Latin Modern Roman", "Computer Modern", Georgia, serif;
+  --font-ui: "STIX Two Text", Georgia, serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --shadow-sm: 0 1px 2px rgba(12, 21, 39, 0.06);
+  --shadow-md: 0 4px 16px rgba(12, 21, 39, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--fg-text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-page);
+  background-image: var(--page-overlay), var(--pipeline-image);
+  background-size: cover, cover;
+  background-position: center, center bottom;
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* ── App shell ── */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  box-shadow: var(--shadow-md);
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--header-overlay), var(--pipeline-image);
+  background-size: cover, cover;
+  background-position: center, center 70%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: 0;
+}
+
+.header-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(12, 21, 39, 0.55) 0%,
+      rgba(12, 21, 39, 0.15) 50%,
+      rgba(12, 21, 39, 0.55) 100%);
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px 24px 10px;
+}
+
+.brand-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.brand-tagline {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(186, 230, 253, 0.75);
+  letter-spacing: 0.02em;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 24px 18px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 9px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  backdrop-filter: blur(2px);
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: var(--bg-nav-hover);
+  border-color: rgba(186, 230, 253, 0.2);
+  text-decoration: none;
+}
+
+.nav-link--active {
+  color: #ffffff;
+  background: var(--bg-nav-active);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.12);
+}
+
+.app-content {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 32px 48px;
+  position: relative;
+}
+
+/* ── Page typography ── */
+
+.app-content h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--fg-navy);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.app-content h3,
+.app-content h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--fg-navy-soft);
+  letter-spacing: 0.01em;
+}
+
+.app-content p {
+  color: var(--fg-muted);
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+/* ── Inner tabs (dcc.Tabs) ── */
+
+.app-content .tab {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--fg-muted) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  padding: 10px 20px !important;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.app-content .tab:hover {
+  color: var(--fg-text) !important;
+}
+
+.app-content .tab--selected {
+  color: var(--fg-navy) !important;
+  border-bottom: 2px solid var(--fg-accent) !important;
+  background: transparent !important;
+}
+
+.app-content .tab-container {
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 24px;
+}
+
+/* ── Buttons ── */
+
+button,
+.btn,
+.dash-button {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--fg-navy);
+  background: var(--fg-navy);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+button:hover,
+.btn:hover,
+.dash-button:hover {
+  background: var(--fg-navy-soft);
+  border-color: var(--fg-navy-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+button.btn-secondary,
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--fg-navy);
+  border-color: var(--border-strong);
+}
+
+button.btn-secondary:hover,
+.btn-secondary:hover {
+  background: var(--bg-page);
+  border-color: var(--fg-muted);
+}
+
+/* ── Dropdowns ── */
+
+.Select-control,
+.dash-dropdown .Select-control {
+  font-family: var(--font-ui);
+  border-radius: var(--radius-md) !important;
+  border-color: var(--border-strong) !important;
+  background: var(--bg-surface) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.Select-control:hover,
+.dash-dropdown .Select-control:hover {
+  border-color: var(--fg-muted) !important;
+}
+
+.is-focused>.Select-control,
+.dash-dropdown .is-focused>.Select-control {
+  border-color: var(--fg-accent) !important;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15) !important;
+}
+
+.Select-menu-outer {
+  font-family: var(--font-ui);
+  border-radius: var(--radius-md) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ── Data tables ── */
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+}
+
+.dash-table-container .dash-header {
+  background: var(--bg-page) !important;
+  color: var(--fg-navy) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--border-subtle) !important;
+}
+
+.dash-table-container .dash-cell {
+  border-color: var(--border-subtle) !important;
+}
+
+/* ── Graphs & cards ── */
+
+.js-plotly-plot .plotly .modebar {
+  opacity: 0.5;
+}
+
+.js-plotly-plot .plotly .modebar:hover {
+  opacity: 1;
+}
+
+.card-surface {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* Weather alerts: dropdown menus must stack above the folium iframe */
+.alert-filters-panel {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.alert-filters-panel .Select-menu-outer {
+  z-index: 1000 !important;
+}
+
+.alert-map-panel {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Labels ── */
+
+label {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg-text);
+  letter-spacing: 0.01em;
+}
+
+/* ── Scrollbar (subtle) ── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-muted);
+}

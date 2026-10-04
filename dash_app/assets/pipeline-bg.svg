@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0c1527"/>
+    </linearGradient>
+    <linearGradient id="pipe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a2744"/>
+      <stop offset="100%" stop-color="#0c1527"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- Distant horizon haze -->
+  <ellipse cx="800" cy="620" rx="900" ry="120" fill="#243b5c" opacity="0.35"/>
+
+  <!-- Ground -->
+  <rect x="0" y="580" width="1600" height="320" fill="url(#ground)"/>
+
+  <!-- Main pipeline (foreground) -->
+  <g opacity="0.55">
+    <rect x="-40" y="520" width="1680" height="48" rx="24" fill="url(#pipe)"/>
+    <rect x="-40" y="520" width="1680" height="48" rx="24" fill="none" stroke="#cbd5e1" stroke-width="2" opacity="0.3"/>
+    <!-- Weld seams -->
+    <line x1="200" y1="520" x2="200" y2="568" stroke="#475569" stroke-width="2" opacity="0.5"/>
+    <line x1="500" y1="520" x2="500" y2="568" stroke="#475569" stroke-width="2" opacity="0.5"/>
+    <line x1="800" y1="520" x2="800" y2="568" stroke="#475569" stroke-width="2" opacity="0.5"/>
+    <line x1="1100" y1="520" x2="1100" y2="568" stroke="#475569" stroke-width="2" opacity="0.5"/>
+    <line x1="1400" y1="520" x2="1400" y2="568" stroke="#475569" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- Secondary elevated pipeline -->
+  <g opacity="0.35">
+    <rect x="100" y="420" width="1400" height="32" rx="16" fill="url(#pipe)"/>
+    <!-- Support pillars -->
+    <rect x="250" y="452" width="8" height="80" fill="#475569"/>
+    <rect x="650" y="452" width="8" height="80" fill="#475569"/>
+    <rect x="1050" y="452" width="8" height="80" fill="#475569"/>
+  </g>
+
+  <!-- Valve assembly -->
+  <g opacity="0.45" transform="translate(720, 490)">
+    <rect x="0" y="0" width="60" height="80" rx="4" fill="#64748b"/>
+    <circle cx="30" cy="30" r="18" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="22" y="55" width="16" height="30" rx="2" fill="#334155"/>
+    <line x1="-80" y1="40" x2="0" y2="40" stroke="#64748b" stroke-width="32" stroke-linecap="round"/>
+    <line x1="60" y1="40" x2="140" y2="40" stroke="#64748b" stroke-width="32" stroke-linecap="round"/>
+  </g>
+
+  <!-- Distant storage tanks -->
+  <g opacity="0.2">
+    <ellipse cx="200" cy="560" rx="55" ry="18" fill="#334155"/>
+    <rect x="145" y="480" width="110" height="80" fill="#1e293b"/>
+    <ellipse cx="200" cy="480" rx="55" ry="18" fill="#475569"/>
+
+    <ellipse cx="1350" cy="555" rx="45" ry="14" fill="#334155"/>
+    <rect x="1305" y="490" width="90" height="65" fill="#1e293b"/>
+    <ellipse cx="1350" cy="490" rx="45" ry="14" fill="#475569"/>
+  </g>
+</svg>

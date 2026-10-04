@@ -1,0 +1,11 @@
+/* Bergoom - OFL-1.1, https://github.com/dchest/bergoom  (see fonts/OFL.md) */
+@font-face { font-family: 'Bergoom'; src: url('/assets/fonts/Bergoom-Regular.woff2') format('woff2');
+             font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Bergoom'; src: url('/assets/fonts/Bergoom-Semibold.woff2') format('woff2');
+             font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Bergoom'; src: url('/assets/fonts/Bergoom-Bold.woff2') format('woff2');
+             font-weight: 700; font-style: normal; font-display: swap; }
+
+body { margin: 0; background: #0b0b0c; }
+/* tabular figures so capacity columns line up */
+.pm-num { font-variant-numeric: tabular-nums; }
