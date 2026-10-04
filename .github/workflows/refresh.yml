@@ -12,7 +12,7 @@ jobs:
        with:
          python-version: "3.14"
      - run: pip install -r req/requirements.txt
-     - run: python refresh_data.py
+     - run: python src/data_updates/refresh_data.py
        env:
          EIA_KEY: ${{ secrets.EIA_KEY }}
          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
